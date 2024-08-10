@@ -1,146 +1,174 @@
 <!DOCTYPE html>
 <html lang="en">
- 
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>SecureStay Hotel | @yield('title')</title>
+    <title>E-learning - @yield('title')</title>
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.2/dist/alpine.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <script src="https://js.pusher.com/7.2/pusher.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <link rel="icon" href="logo.png">
 
-    <link rel="icon" href="hotel.png">
 </head>
- 
 <body>
     <div>
-        <nav class="bg-gray-800 py-6">
+        <nav class="bg-gradient-to-r from-gray-900 via-gray-800 to-black py-8">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex items-center justify-between">
+                    <!-- Logo and Main Navigation -->
                     <div class="flex items-center">
-                        <div class="flex-shrink-0 text-white">
-                            <a href="{{ url('/') }}" class="text-white text-2xl font-bold"><i class="fas fa-hotel"></i> SecureStay Hotel</a>
+                        <div class="flex-shrink-0 text-white mr-6">
+                            <a href="/" class="text-white text-3xl font-bold flex items-center">
+                                <img src="logo.png" alt="E-learning Logo" class="mr-2 h-20">
+                                E-learning
+                            </a>
                         </div>
-                        <div class="hidden md:block ml-10">
-                            <div class="flex items-baseline space-x-4">
-                                <a href="{{ url('/') }}" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium {{ Request::is('/') ? 'bg-gray-700 text-white' : '' }}"><i class="fas fa-home"></i> Home</a>
-                                <a href="{{ url('/acerca') }}" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium {{ Request::is('about') ? 'bg-gray-700 text-white' : '' }}"><i class="fas fa-info-circle"></i> About Us</a>
-                                <a href="{{ url('/contactanos') }}" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium {{ Request::is('contact') ? 'bg-gray-700 text-white' : '' }}"><i class="fas fa-envelope"></i> Contact Us</a>
-                                <a href="{{ url('/rooms') }}" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium {{ Request::is('rooms') ? 'bg-gray-700 text-white' : '' }}"><i class="fas fa-bed"></i> Rooms</a>
-                                @auth
-                                     <a href="{{ url('/reservas') }}" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"><i class="fas fa-calendar-plus"></i> Reservas</a>
-                                @endauth
+                        <!-- Dropdown Menus -->
+                        <div class="flex space-x-4 relative">
+                            <!-- Dropdown 1 -->
+                            <div class="relative">
+                                <button class="text-gray-300 hover:bg-gray-600 hover:text-white px-4 py-3 rounded-md text-base font-medium" onclick="toggleDropdown(0)">Inicio <i class="bi bi-caret-down-fill"></i></button>
+                                <div class="absolute z-10 -ml-4 mt-3 transform w-48 py-2 bg-white rounded-md shadow-lg hidden" id="dropdownContent0">
+                                    <!-- Dropdown Content -->
+                                    <a href="{{ url('/') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"><i class="fas fa-home"></i> - Home</a>
+                                    <a href="{{ url('/cursos') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"><i class="fas fa-book"></i> - Cursos</a>
+                                </div>
+                            </div>
+                            <!-- Dropdown 2 -->
+                            <div class="relative">
+                                <button class="text-gray-300 hover:bg-gray-600 hover:text-white px-4 py-3 rounded-md text-base font-medium" onclick="toggleDropdown(1)">Cursos <i class="bi bi-caret-down-fill"></i></button>
+                                <div class="absolute z-10 -ml-4 mt-3 transform w-48 py-2 bg-white rounded-md shadow-lg hidden" id="dropdownContent1">
+                                    <!-- Dropdown Content -->
+                                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"><i class="fas fa-calculator"></i> - Matemáticas</a>
+                                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"><i class="fas fa-flask"></i> - Ciencias</a>
+                                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"><i class="fas fa-history"></i> - Historia</a>
+                                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"><i class="fas fa-language"></i> - Idiomas</a>
+                                </div>
+                            </div>
+                            <!-- Dropdown 3 -->
+                            <div class="relative">
+                                <button class="text-gray-300 hover:bg-gray-600 hover:text-white px-4 py-3 rounded-md text-base font-medium" onclick="toggleDropdown(2)">Ayuda <i class="bi bi-caret-down-fill"></i></button>
+                                <div class="absolute z-10 -ml-4 mt-3 transform w-48 py-2 bg-white rounded-md shadow-lg hidden" id="dropdownContent2">
+                                    <!-- Dropdown Content -->
+                                    <a href="{{ url('/index') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"><i class="fas fa-hands-helping"></i> - Soporte</a>
+                                    <a href="{{ url('/faq') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"><i class="fas fa-question-circle"></i> - FAQs</a>
+                                    <a href="{{ url('/contacto') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"><i class="fas fa-envelope"></i> - Contacto</a>
+                                </div>
+                            </div>
+                            <!-- Campo de búsqueda -->
+                            <div class="relative">
+                                <input type="text" class="text-gray-800 placeholder-gray-400 px-4 py-3 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 w-64" placeholder="Buscar...">
+                                <button class="absolute right-0 top-0 bottom-0 px-4 py-3 bg-gray-700 text-white rounded-r-md"><i class="fas fa-search"></i></button>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <!-- Secondary Navigation and Additional Elements -->
+                    <div class="hidden md:flex items-center space-x-4">
+                        <!-- Authentication Links -->
+                        @auth
+                        <div class="relative">
+                            <button class="text-gray-300 hover:bg-gray-600 hover:text-white px-4 py-3 rounded-md text-base font-medium" onclick="toggleDropdown(3)">{{ Auth::user()->name }} <i class="bi bi-caret-down-fill"></i></button>
+                            <div class="absolute z-10 -ml-4 mt-3 transform w-48 py-2 bg-white rounded-md shadow-lg hidden" id="dropdownContent3">
+                                <!-- Dropdown Content -->
+                                <a href="{{ route('profile.edit') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"><i class="fas fa-user"></i> - Perfil</a>
+                                <form method="POST" action="{{ route('logout') }}">
+                                    @csrf
+                                    <button type="submit" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"><i class="fas fa-sign-out-alt"></i> - Cerrar Sesión</button>
+                                </form>
                             </div>
                         </div>
-                    </div>
-                    <div class="hidden md:block">
-                        <div class="ml-4 flex items-center md:ml-6">
-                            @if (Route::has('login'))
-                                @auth
-                                    <a href="{{ url('/profile') }}" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">{{ Auth::user()->name }}</a>
-                                    <form method="POST" action="{{ route('logout') }}">
-                                        @csrf
-                                        <button type="submit" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"><i class="fas fa-sign-out-alt"></i> Logout</button>
-                                    </form>
-                                @else
-                                    <a href="{{ route('login') }}" class="font-semibold text-white hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"><i class="fas fa-sign-in-alt"></i> Log in</a>
-                                    @if (Route::has('register'))
-                                        <a href="{{ route('register') }}" class="ml-4 font-semibold text-white hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"><i class="fas fa-user-plus"></i> Register</a>
-                                    @endif
-                                @endauth
-                            @endif
+                        @else
+                        <div class="ml-4 flex items-center">
+                            <a href="/login" class="font-semibold text-white px-4 py-3 rounded-md text-base font-medium bg-blue-600 hover:bg-blue-700 active:bg-blue-800"><i class="fas fa-sign-in-alt"></i> Log in</a>
+                            <a href="/register" class="ml-4 font-semibold text-white px-4 py-3 rounded-md text-base font-medium bg-green-600 hover:bg-green-700 active:bg-green-800"><i class="fas fa-user-plus"></i> Register</a>
                         </div>
-                    </div>
-                    <div class="-mr-2 flex md:hidden">
-                        <!-- Mobile menu button -->
-                        <button type="button" class="bg-gray-800 inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
-                            <span class="sr-only">Open main menu</span>
-                            <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                            </svg>
-                            <svg class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                            </svg>
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <!-- Mobile menu, show/hide based on menu state. -->
-            <div class="md:hidden" id="mobile-menu">
-                <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                    <a href="{{ url('/') }}" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"><i class="fas fa-home"></i> Home</a>
-                    <a href="{{ url('/about') }}" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"><i class="fas fa-info-circle"></i> About Us</a>
-                    <a href="{{ url('/contact') }}" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"><i class="fas fa-envelope"></i> Contact Us</a>
-                    <a href="{{ url('/rooms') }}" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"><i class="fas fa-bed"></i> Rooms</a>
-                </div>
-                <div class="pt-4 pb-3 border-t border-gray-700">
-                    <div class="flex items-center px-5">
-                        <div class="flex-shrink-0">
-                            <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
-                        </div>
-                        <div class="ml-3">
-                            <div class="text-base font-medium leading-none text-white">Tom Cook</div>
-                            <div class="text-sm font-medium leading-none text-gray-400">tom@example.com</div>
-                        </div>
-                        <button class="ml-auto bg-gray-800 flex-shrink-0 p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
-                            <span class="sr-only">View notifications</span>
-                            <!-- Heroicon name: outline/bell -->
-                            <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
-                            </svg>
-                        </button>
-                    </div>
-                    <div class="mt-3 px-2 space-y-1">
-                        <a href="{{ url('/profile') }}" class="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700"><i class="fas fa-user"></i> Your Profile</a>
-                        <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700"><i class="fas fa-cog"></i> Settings</a>
-                        <a href="{{ url('/logout') }}" class="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700"><i class="fas fa-sign-out-alt"></i> Sign out</a>
+                        @endauth
                     </div>
                 </div>
             </div>
         </nav>
         
+        <script>
+            // Función para cerrar todos los dropdowns abiertos
+            function closeDropdowns() {
+                var dropdowns = document.querySelectorAll('.dropdown-content');
+                dropdowns.forEach(function(item) {
+                    item.classList.add('hidden');
+                });
+            }
+        
+            // Función para alternar la visibilidad de un dropdown
+            function toggleDropdown(index) {
+                var dropdownContent = document.getElementById('dropdownContent' + index);
+                dropdownContent.classList.toggle('hidden');
+                
+                // Ocultar los otros dropdowns
+                var dropdowns = document.querySelectorAll('.dropdown-content');
+                dropdowns.forEach(function(item, i) {
+                    if (i != index) {
+                        item.classList.add('hidden');
+                    }
+                });
+            }
+        </script>
+                
         <main>
             <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
-                <div>@yield('contents')</div>
+                <div><div>@yield('contents')</div></div>
             </div>
         </main>
     </div>
-
-    
- 
 </body>
 <br>
-<footer class="bg-gray-800 text-white py-6">
+<footer class="bg-gradient-to-r from-gray-900 via-gray-800 to-black text-white py-8">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <div>
-                <h2 class="text-lg font-bold mb-2">SecureStay Hotel</h2>
-                <p class="text-sm">En SecureStay, entendemos la importancia de tu seguridad y tranquilidad durante tus viajes. Nos enorgullece ofrecer no solo un alojamiento cómodo y acogedor, sino también un entorno donde la seguridad es una prioridad absoluta.</p>
+        <div class="flex flex-col md:flex-row justify-between">
+            <!-- Logo and Description -->
+            <div class="mb-8 md:mb-0">
+                <h3 class="text-lg font-bold mb-2">E-learning</h3>
+                <p class="text-sm">Ofrecemos una amplia gama de cursos en línea para ayudarte a alcanzar tus metas educativas y profesionales.</p>
             </div>
-            <div>
-                <h2 class="text-lg font-bold mb-2">Contact Information</h2>
-                <p class="text-sm"><i class="fas fa-map-marker-alt"></i> Av. Principal 123, Saltillo, México</p>
-                <p class="text-sm"><i class="fas fa-phone"></i> +52 844-529-1303</p>
-                <p class="text-sm"><i class="fas fa-envelope"></i> info@securestay.com</p>
+            <!-- Navigation Links -->
+            <div class="flex space-x-8">
+                <div>
+                    <h4 class="font-semibold mb-2">Enlaces</h4>
+                    <ul class="space-y-2">
+                        <li><a href="/" class="text-gray-300 hover:text-white">Inicio</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Cursos</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Soporte</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Contacto</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-2">Legal</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-300 hover:text-white">Política de Privacidad</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Términos del Servicio</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Cookies</a></li>
+                    </ul>
+                </div>
             </div>
+            <!-- Social Media Links -->
             <div>
-                <h2 class="text-lg font-bold mb-2">Follow Us</h2>
-                <ul class="flex space-x-4">
-                <li><a href="#" class="text-blue-500 hover:text-blue-600"><i class="bi bi-facebook"></i></a></li>
-                <li><a href="#" class="text-blue-500 hover:text-blue-600"><i class="bi bi-instagram"></i></a></li>
-                <li><a href="#" class="text-blue-500 hover:text-blue-600"><i class="bi bi-twitter"></i></a></li>
-                <li><a href="#" class="text-blue-500 hover:text-blue-600"><i class="bi bi-linkedin"></i></a></li>
-            </ul>
+                <h4 class="font-semibold mb-2">Síguenos</h4>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-gray-300 hover:text-white"><i class="fab fa-facebook fa-2x"></i></a>
+                    <a href="#" class="text-gray-300 hover:text-white"><i class="fab fa-twitter fa-2x"></i></a>
+                    <a href="#" class="text-gray-300 hover:text-white"><i class="fab fa-instagram fa-2x"></i></a>
+                    <a href="#" class="text-gray-300 hover:text-white"><i class="fab fa-linkedin fa-2x"></i></a>
+                </div>
             </div>
         </div>
-        <hr class="mt-4 mb-2 border-gray-600">
-        <p class="text-sm text-center">&copy; 2024 SecureStay. All rights reserved.</p>
+        <div class="mt-8 text-center text-sm text-gray-500">
+            <p>© 2024 E-learning. Todos los derechos reservados.</p>
+        </div>
     </div>
 </footer>
-
- 
 </html>

@@ -1,41 +1,58 @@
 @extends('layouts.user')
-
-@section('title', 'Preguntas Frecuentes')
-
+ 
+@section('title', 'FAQs')
+ 
 @section('contents')
-
-<main class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
-    <section class="text-center mb-8 bg-gray-200 py-12">
-        <h2 class="text-4xl font-bold text-gray-800 mb-4">Preguntas Frecuentes</h2>
-        <p class="mt-2 text-lg text-gray-600">Aquí encontrarás respuestas a algunas preguntas comunes.</p>
+<main class="bg-gray-200">
+    <section class="bg-gray-200 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold mb-8">Preguntas Frecuentes</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Pregunta 1 -->
+                <div class="bg-white shadow-xl rounded-lg overflow-hidden">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-4">¿Cuáles son los requisitos para inscribirme?</h3>
+                        <p class="text-gray-700 mb-6">Para inscribirte en nuestros cursos solo necesitas tener acceso a internet y una cuenta de correo electrónico.</p>
+                    </div>
+                </div>
+                <!-- Pregunta 2 -->
+                <div class="bg-white shadow-xl rounded-lg overflow-hidden">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-4">¿Cómo puedo acceder al contenido de los cursos?</h3>
+                        <p class="text-gray-700 mb-6">Una vez te inscribes en nuestros cursos, recibirás acceso a una plataforma en línea donde podrás acceder al contenido de los cursos en cualquier momento y desde cualquier lugar.</p>
+                    </div>
+                </div>
+                <!-- Pregunta 3 -->
+                <div class="bg-white shadow-xl rounded-lg overflow-hidden">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-4">¿Los cursos ofrecen certificados de finalización?</h3>
+                        <p class="text-gray-700 mb-6">Sí, al completar satisfactoriamente un curso, recibirás un certificado de finalización que podrás descargar y compartir en tus redes sociales o incluir en tu currículum vitae.</p>
+                    </div>
+                </div>
+                <!-- Pregunta 4 -->
+                <div class="bg-white shadow-xl rounded-lg overflow-hidden">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-4">¿Puedo obtener ayuda si tengo problemas con el curso?</h3>
+                        <p class="text-gray-700 mb-6">Por supuesto, nuestro equipo de soporte está disponible para ayudarte con cualquier problema técnico o pregunta relacionada con el contenido del curso.</p>
+                    </div>
+                </div>
+                <!-- Pregunta 5 -->
+                <div class="bg-white shadow-xl rounded-lg overflow-hidden">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-4">¿Hay algún descuento para estudiantes?</h3>
+                        <p class="text-gray-700 mb-6">Sí, ofrecemos descuentos especiales para estudiantes. Por favor, ponte en contacto con nuestro equipo de atención al cliente para obtener más información sobre cómo obtener tu descuento.</p>
+                    </div>
+                </div>
+                <!-- Pregunta 6 -->
+                <div class="bg-white shadow-xl rounded-lg overflow-hidden">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-4">¿Qué sucede si no estoy satisfecho con el curso?</h3>
+                        <p class="text-gray-700 mb-6">Si por alguna razón no estás satisfecho con el curso, ofrecemos una garantía de devolución del dinero dentro de un cierto período de tiempo después de la compra.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
-
-    <div class="grid grid-cols-1 gap-6 lg:grid-cols-3">
-        <div class="bg-gray-200 rounded-lg shadow-md p-6">
-            <h3 class="text-xl font-semibold mb-2"><strong>¿Cuáles son los métodos de pago aceptados?</strong></h3>
-            <p>Aceptamos pagos con tarjeta de crédito y débito Visa, Mastercard, American Express, así como PayPal.</p>
-        </div>
-        <div class="bg-gray-200 rounded-lg shadow-md p-6">
-            <h3 class="text-xl font-semibold mb-2"><strong>¿Cómo puedo cancelar mi reserva?</strong></h3>
-            <p>Para cancelar tu reserva, por favor contáctanos por teléfono o correo electrónico al menos 48 horas antes de tu fecha de llegada.</p>
-        </div>
-        <div class="bg-gray-200 rounded-lg shadow-md p-6">
-            <h3 class="text-xl font-semibold mb-2"><strong>¿Ofrecen servicio de transporte desde el aeropuerto?</strong></h3>
-            <p>Sí, ofrecemos servicio de transporte desde y hacia el aeropuerto. Por favor, contáctanos para más detalles y reserva anticipada.</p>
-        </div>
-        <div class="bg-gray-200 rounded-lg shadow-md p-6">
-            <h3 class="text-xl font-semibold mb-2"><strong>¿Hay estacionamiento disponible?</strong></h3>
-            <p>Sí, contamos con un estacionamiento gratuito para nuestros huéspedes.</p>
-        </div>
-        <div class="bg-gray-200 rounded-lg shadow-md p-6">
-            <h3 class="text-xl font-semibold mb-2"><strong>¿Se permiten mascotas?</strong></h3>
-            <p>Lamentablemente, no permitimos mascotas en nuestras instalaciones, excepto perros guía para personas con discapacidad.</p>
-        </div>
-        <div class="bg-gray-200 rounded-lg shadow-md p-6">
-            <h3 class="text-xl font-semibold mb-2"><strong>¿Cuál es la política de cancelación?</strong></h3>
-            <p>Nuestra política de cancelación varía según el tipo de habitación y la tarifa seleccionada. Por favor, consulta los detalles al momento de realizar tu reserva o contáctanos para más información.</p>
-        </div>
-    </div>
 </main>
 
 @endsection

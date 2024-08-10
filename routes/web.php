@@ -1,12 +1,9 @@
 <?php
 
-use App\Http\Controllers\AdminController;
-use App\Http\Controllers\AuthController;
-use App\Http\Controllers\ComentariosController;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\ProductController;
-use App\Http\Controllers\ReservasController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ContactoController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -20,70 +17,45 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('home');
-});
-Route::get('/rooms', function () {
-    return view('rooms');
-});
-Route::get('/habitacion_estandar', function () {
-    return view('habitacion_estandar');
-});
-Route::get('/habitacion_lujo', function () {
-    return view('habitacion_lujo');
-});
-Route::get('/suite_familiar', function () {
-    return view('suite_familiar');
+    return view('welcome');
 });
 
-Route::get('/contactanos', function () {
-    return view('contactanos');
+Route::get('/contacto', function () {
+    return view('contacto');
 });
 
-Route::get('/acerca', function () {
-    return view('acerca');
+Route::get('/cursos', function () {
+    return view('cursos');
+});
+
+Route::get('/error', function () {
+    return view('error');
+});
+
+Route::get('/busqueda', function () {
+    return view('busqueda');
 });
 
 Route::get('/faq', function () {
     return view('faq');
 });
 
-Route::controller(AuthController::class)->group(function(){
-    Route::get('register', 'register')->name('register');
-    Route::post('register', 'registerSave')->name('register.save');
-    Route::get('login', 'login')->name('login');
-    Route::post('login', 'loginAction')->name('login.action');
+Route::post('/contacto', [ContactoController::class, 'guardarInformacion'])->name('guardarInformacion');
 
-    Route::post('logout', 'logout')->middleware('auth')->name('logout');
+
+Route::get('/index', 'App\Http\Controllers\PusherController@index');
+Route::post('/broadcast', 'App\Http\Controllers\PusherController@broadcast');
+Route::post('/receive', 'App\Http\Controllers\PusherController@receive');
+
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-//Normal Users Routes List
-Route::middleware(['auth', 'user-access:user'])->group(function () {
-    Route::get('/home', [HomeController::class, 'index'])->name('home');
-});
-
-//Admin Routes List
-Route::middleware(['auth', 'user-access:admin'])->group(function () {
-    Route::get('/admin/home', [HomeController::class, 'adminHome'])->name('admin/home');
-    Route::get('/admin/profile', [AdminController::class, 'profilepage'])->name('admin/profile');
-    Route::get('/admin/products', [ProductController::class, 'index'])->name('admin/products');
-    Route::get('/admin/products/create', [ProductController::class, 'create'])->name('admin/products/create');
-    Route::post('/admin/products/store', [ProductController::class, 'store'])->name('admin/products/store');
-    Route::get('/admin/products/show/{id}', [ProductController::class, 'show'])->name('admin/products/show');
-    Route::get('/admin/products/edit/{id}', [ProductController::class, 'edit'])->name('admin/products/edit');
-    Route::put('/admin/products/edit/{id}', [ProductController::class, 'update'])->name('admin/products/update');
-    Route::delete('/admin/products/destroy/{id}', [ProductController::class, 'destroy'])->name('admin/products/destroy');
-});
-
-Route::post('/reservar', [ReservasController::class, 'create'])->name('reservar');
-Route::get('/reservas', [ReservasController::class, 'mostrarReservas'])->name('reservas');
-Route::get('/reservas/{id}/edit', [ReservasController::class, 'edit'])->name('reserva.edit');
-Route::put('/reservas/{id}', [ReservasController::class, 'update'])->name('reserva.update');
-
-Route::post('/rooms', [ComentariosController::class, 'create'])->name('comentario');
-Route::get('/habitacion_estandar', [ComentariosController::class, 'mostrarComentarios'])->name('comentarios');
-Route::get('/habitacion_lujo', [ComentariosController::class, 'mostrarComentarios2'])->name('comentarios2');
-Route::get('/suite_familiar', [ComentariosController::class, 'mostrarComentarios3'])->name('comentarios3');
-
-
-
-
+require __DIR__.'/auth.php';

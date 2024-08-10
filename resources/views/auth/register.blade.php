@@ -1,99 +1,125 @@
 <!DOCTYPE html>
-<html lang="en">
- 
+<html lang="es">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <title>SecureStay Hotel | Register</title>
-    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" />
-    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.2/dist/alpine.min.js"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
-    <link rel="icon" href="hotel.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-learning - Registro</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="icon" href="logo.png">
 </head>
- 
-<body>
-    <nav class="bg-gray-800 py-6">
+<body class="bg-gray-200">
+
+    <!-- Navbar -->
+    <nav class="bg-gradient-to-r from-gray-900 via-gray-800 to-black py-8">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between">
+                <!-- Logo and Main Navigation -->
                 <div class="flex items-center">
-                    <!-- Logo del hotel -->
-                    <div class="flex-shrink-0 text-white">
-                        <a href="{{ url('/') }}" class="text-white text-2xl font-bold"><i class="fas fa-hotel"></i> SecureStay Hotel</a>
-                    </div>
-                </div>
-                <div class="hidden md:block ml-10">
-                    <div class="flex items-baseline space-x-4">
-                        <!-- Botón de retroceso -->
-                        <a href="javascript:history.back()" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
-                            <i class="fas fa-arrow-left"></i> Back
+                    <div class="flex-shrink-0 text-white mr-6">
+                        <a href="/" class="text-white text-3xl font-bold flex items-center">
+                            <img src="logo.png" alt="E-learning Logo" class="mr-2 h-20">
+                            E-learning
                         </a>
                     </div>
                 </div>
-            </div>
-        </div>
-    </nav><br><br>
-    <br>
-    <br>
-
-
-    <main class="bg-gray-50 dark:bg-white-900 mt-16 md:mt-0">
-        <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-            <div class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
-                <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
-                    <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white text-center">
-                        <i class="fas fa-user-plus mr-2"></i>Crear una cuenta
-                    </h1>
-                    <form action="{{ route('register.save') }}" method="POST" class="space-y-4 md:space-y-6">
-                        @csrf
-                        <div>
-                            <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Tu nombre</label>
-                            <input type="text" name="name" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="nombre" required="">
-                            @error('name')
-                            <span class="text-red-600">{{ $message }}</span>
-                            @enderror
-                        </div>
-                        <div>
-                            <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Tu correo electrónico</label>
-                            <input type="email" name="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="nombre@empresa.com" required="">
-                            @error('email')
-                            <span class="text-red-600">{{ $message }}</span>
-                            @enderror
-                        </div>
-                        <div>
-                            <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Contraseña</label>
-                            <input type="password" name="password" id="password" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required="">
-                            @error('password')
-                            <span class="text-red-600">{{ $message }}</span>
-                            @enderror
-                        </div>
-                        <div>
-                            <label for="confirm-password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Confirmar contraseña</label>
-                            <input type="password" name="password_confirmation" id="password_confirmation" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required="">
-                            @error('password_confirmation')
-                            <span class="text-red-600">{{ $message }}</span>
-                            @enderror
-                        </div>
-                        <div class="flex items-start">
-                            <div class="flex items-center h-5">
-                                <input id="terms" aria-describedby="terms" type="checkbox" class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800" required="">
-                            </div>
-                            <div class="ml-3 text-sm">
-                                <label for="terms" class="font-light text-gray-500 dark:text-gray-300">Acepto los <a class="font-medium text-primary-600 hover:underline dark:text-primary-500" href="#">Términos y Condiciones</a></label>
-                            </div>
-                        </div>
-                        <button type="submit" class="flex w-full justify-center rounded-md bg-blue-600 px-3 py-2 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Crear una cuenta</button>
-                        <p class="text-sm font-light text-gray-500 dark:text-gray-400 text-center">
-                            ¿Ya tienes una cuenta? <a href="{{ route('login') }}" class="font-medium text-primary-600 hover:underline dark:text-primary-500">Inicia sesión aquí</a>
-                        </p>
-                    </form>
+                <!-- Back Button -->
+                <div>
+                    <button onclick="history.back()" class="font-semibold text-white px-4 py-3 rounded-md text-base font-medium bg-blue-600 hover:bg-blue-700 active:bg-blue-800">
+                        <i class="fas fa-arrow-left"></i> Atrás
+                    </button>
                 </div>
             </div>
         </div>
-    </main>
-    
+    </nav>
+
+    <!-- Register Form -->
+    <div class="flex justify-center items-center min-h-screen py-16">
+        <div class="bg-white rounded-lg shadow-lg w-full max-w-4xl flex">
+            <!-- Left Column -->
+            <div class="w-1/2 p-8">
+                <h2 class="text-3xl font-bold mb-6 text-center text-gray-900">Registro</h2>
+                <form method="POST" action="{{ route('register') }}">
+                    @csrf
+                    <div class="mb-4">
+                        <label for="name" class="block text-sm font-medium mb-2 text-gray-900">Nombre Completo</label>
+                        <input type="text" id="name" name="name" class="w-full px-4 py-2 rounded-md bg-gray-200 text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500" :value="old('name')" required autofocus autocomplete="name">
+                        <x-input-error :messages="$errors->get('name')" class="mt-2" />
+                    </div>
+                    <div class="mb-4">
+                        <label for="email" class="block text-sm font-medium mb-2 text-gray-900">Correo Electrónico</label>
+                        <input type="email" id="email" name="email" class="w-full px-4 py-2 rounded-md bg-gray-200 text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500" :value="old('email')" required autocomplete="username">
+                        <x-input-error :messages="$errors->get('email')" class="mt-2" />
+                    </div>
+                    <div class="mb-4">
+                        <label for="password" class="block text-sm font-medium mb-2 text-gray-900">Contraseña</label>
+                        <input type="password" id="password" name="password" class="w-full px-4 py-2 rounded-md bg-gray-200 text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500" required autocomplete="new-password">
+                        <x-input-error :messages="$errors->get('password')" class="mt-2" />
+                    </div>
+                    <div class="mb-6">
+                        <label for="password_confirmation" class="block text-sm font-medium mb-2 text-gray-900">Confirmar Contraseña</label>
+                        <input type="password" id="password_confirmation" name="password_confirmation" class="w-full px-4 py-2 rounded-md bg-gray-200 text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500" required autocomplete="new-password">
+                        <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
+                    </div>
+                    <button type="submit" class="w-full py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-md">Registrarse</button>
+                </form>
+                <p class="mt-6 text-center text-sm text-gray-900">
+                    ¿Ya tienes una cuenta? <a href="{{ route('login') }}" class="text-blue-500 hover:underline">Inicia Sesión</a>
+                </p>
+            </div>
+            <!-- Right Column -->
+            <div class="w-1/2 bg-blue-600 text-white p-8 rounded-r-lg flex flex-col justify-center">
+                <h2 class="text-3xl font-bold mb-4">Bienvenido a E-learning</h2>
+                <p class="text-lg mb-8">Empieza a aprender hoy. Accede a cientos de cursos y recursos para mejorar tus habilidades.</p>
+                <img src="https://pngimg.com/uploads/student/student_PNG181.png" alt="E-learning Image" class="rounded-md">
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gradient-to-r from-gray-900 via-gray-800 to-black text-white py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between">
+                <!-- Logo and Description -->
+                <div class="mb-8 md:mb-0">
+                    <h3 class="text-lg font-bold mb-2">E-learning</h3>
+                    <p class="text-sm">Ofrecemos una amplia gama de cursos en línea para ayudarte a alcanzar tus metas educativas y profesionales.</p>
+                </div>
+                <!-- Navigation Links -->
+                <div class="flex space-x-8">
+                    <div>
+                        <h4 class="font-semibold mb-2">Enlaces</h4>
+                        <ul class="space-y-2">
+                            <li><a href="/" class="text-gray-300 hover:text-white">Inicio</a></li>
+                            <li><a href="#" class="text-gray-300 hover:text-white">Cursos</a></li>
+                            <li><a href="#" class="text-gray-300 hover:text-white">Soporte</a></li>
+                            <li><a href="#" class="text-gray-300 hover:text-white">Contacto</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold mb-2">Legal</h4>
+                        <ul class="space-y-2">
+                            <li><a href="#" class="text-gray-300 hover:text-white">Política de Privacidad</a></li>
+                            <li><a href="#" class="text-gray-300 hover:text-white">Términos del Servicio</a></li>
+                            <li><a href="#" class="text-gray-300 hover:text-white">Cookies</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Social Media Links -->
+                <div>
+                    <h4 class="font-semibold mb-2">Síguenos</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-300 hover:text-white"><i class="fab fa-facebook fa-2x"></i></a>
+                        <a href="#" class="text-gray-300 hover:text-white"><i class="fab fa-twitter fa-2x"></i></a>
+                        <a href="#" class="text-gray-300 hover:text-white"><i class="fab fa-instagram fa-2x"></i></a>
+                        <a href="#" class="text-gray-300 hover:text-white"><i class="fab fa-linkedin fa-2x"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-8 text-center text-sm text-gray-500">
+                <p>© 2024 E-learning. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
 </body>
- 
 </html>
