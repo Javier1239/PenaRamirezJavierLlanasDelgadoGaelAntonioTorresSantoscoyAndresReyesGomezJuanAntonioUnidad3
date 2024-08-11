@@ -46,7 +46,7 @@
                 <div class="bg-white shadow-xl rounded-lg overflow-hidden relative">
                     <img src="https://th.bing.com/th/id/OIP.SA5Yb9rn6dYMrtEidpNbNQHaHa?rs=1&pid=ImgDetMain" alt="Curso 1" class="w-full h-64 object-cover">
                     <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 rounded-lg opacity-0 hover:opacity-100 transition duration-300">
-                        <a href="#" class="text-white font-semibold">Ver detalles</a>
+                        <a href="#" id="openModalMatematicas" class="text-white font-semibold">Ver detalles</a>
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-semibold mb-4">Curso de Matemáticas</h3>
@@ -60,7 +60,7 @@
                 <div class="bg-white shadow-xl rounded-lg overflow-hidden relative">
                     <img src="https://th.bing.com/th/id/R.fd9bfc64afa34fc1481aee3e3ac481e3?rik=GIENcqGs5WxS1g&pid=ImgRaw&r=0" alt="Curso 1" class="w-full h-64 object-cover">
                     <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 rounded-lg opacity-0 hover:opacity-100 transition duration-300">
-                        <a href="#" class="text-white font-semibold">Ver detalles</a>
+                        <a href="#" id="openModalCiencias" class="text-white font-semibold">Ver detalles</a>
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-semibold mb-4">Curso de Ciencias</h3>
@@ -74,7 +74,7 @@
                 <div class="bg-white shadow-xl rounded-lg overflow-hidden relative">
                     <img src="https://th.bing.com/th/id/R.304d3de6a5bdd33de5f93fee85c9cf6a?rik=U43FzynYv8%2fE%2bw&riu=http%3a%2f%2fpep.ieepo.oaxaca.gob.mx%2frecursos%2fmultimedia%2fILCE_Biblioteca_digital%2fColibri%2ftumba%2fimgs%2f10.jpg&ehk=z%2fBlOeaSmYGf4KqGYYOM5DPHzXPPSZKxn%2bT21LZhyAs%3d&risl=&pid=ImgRaw&r=0" alt="Curso 1" class="w-full h-64 object-cover">
                     <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 rounded-lg opacity-0 hover:opacity-100 transition duration-300">
-                        <a href="#" class="text-white font-semibold">Ver detalles</a>
+                        <a href="#" id="openModalHistoria" class="text-white font-semibold">Ver detalles</a>
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-semibold mb-4">Curso de Historia</h3>
@@ -88,7 +88,7 @@
                 <div class="bg-white shadow-xl rounded-lg overflow-hidden relative">
                     <img src="https://www.elsoldetampico.com.mx/incoming/udte7j-shutterstock_637031407.jpg/ALTERNATES/LANDSCAPE_1140/shutterstock_637031407.jpg" alt="Curso 1" class="w-full h-64 object-cover">
                     <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 rounded-lg opacity-0 hover:opacity-100 transition duration-300">
-                        <a href="#" class="text-white font-semibold">Ver detalles</a>
+                        <a href="#" id="openModalIdiomas" class="text-white font-semibold">Ver detalles</a>
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-semibold mb-4">Curso de Idiomas</h3>
@@ -140,6 +140,156 @@
         </div>
     </section>
 
+<!-- Modal para Curso de Matemáticas -->
+<div id="modalMatematicas" class="fixed inset-0 flex items-center justify-center z-50 hidden">
+    <div class="bg-white p-6 rounded-lg shadow-xl max-w-3xl relative">
+        <h3 class="text-xl font-semibold mb-4">Temas del Curso de Matemáticas</h3>
+        <div class="grid grid-cols-3 gap-4 text-gray-700 mb-6">
+            <div>Valor posicional decimal</div>
+            <div>Divide fracciones</div>
+            <div>El pensamiento algebraico</div>
+            <div>Suma decimales</div>
+            <div>Multiplica decimales</div>
+            <div>Convertir unidades de medida</div>
+            <div>Resta decimales</div>
+            <div>Divide decimales</div>
+            <div>Las gráficas de línea</div>
+            <div>Suma y resta fracciones</div>
+            <div>Potencias de diez</div>
+            <div>Propiedades de las figuras</div>
+            <div>Multiplicación y división de varios dígitos</div>
+            <div>El volumen</div>
+            <div>Plano coordenado</div>
+            <div>Multiplica fracciones</div>
+        </div>
+        <div class="flex justify-end">
+            <button id="closeModalMatematicas" class="bg-blue-500 text-white font-semibold px-4 py-2 rounded">Cerrar</button>
+        </div>
+    </div>
+    <div id="modalOverlayMatematicas" class="fixed"></div>
+</div>
+<!-- Modal para Curso de Ciencias -->
+<div id="modalCiencias" class="fixed inset-0 flex items-center justify-center z-50 hidden">
+    <div class="bg-white p-6 rounded-lg shadow-xl max-w-3xl relative">
+        <h3 class="text-xl font-semibold mb-4">Temas del Curso de Ciencias</h3>
+        <div class="grid grid-cols-3 gap-4 text-gray-700 mb-6">
+            <div>Principios de la Física</div>
+            <div>Química Básica</div>
+            <div>Biología Celular</div>
+            <div>La Energía</div>
+            <div>Ecología y Medio Ambiente</div>
+            <div>Astronomía</div>
+            <div>El Método Científico</div>
+            <div>Experimentos Prácticos</div>
+            <div>Avances Científicos</div>
+        </div>
+        <div class="flex justify-end">
+            <button id="closeModalCiencias" class="bg-blue-500 text-white font-semibold px-4 py-2 rounded">Cerrar</button>
+        </div>
+    </div>
+    <div id="modalOverlayCiencias" class="fixed"></div>
+</div>
+<!-- Modal para Curso de Historia -->
+<div id="modalHistoria" class="fixed inset-0 flex items-center justify-center z-50 hidden">
+    <div class="bg-white p-6 rounded-lg shadow-xl max-w-3xl relative">
+        <h3 class="text-xl font-semibold mb-4">Temas del Curso de Historia</h3>
+        <div class="grid grid-cols-3 gap-4 text-gray-700 mb-6">
+            <div>Historia Antigua</div>
+            <div>Edad Media</div>
+            <div>Revolución Industrial</div>
+            <div>Guerras Mundiales</div>
+            <div>Historia Moderna</div>
+            <div>Civilizaciones Prehispánicas</div>
+            <div>Historia de América</div>
+            <div>Movimientos Sociales</div>
+            <div>Personajes Históricos</div>
+        </div>
+        <div class="flex justify-end">
+            <button id="closeModalHistoria" class="bg-blue-500 text-white font-semibold px-4 py-2 rounded">Cerrar</button>
+        </div>
+    </div>
+    <div id="modalOverlayHistoria" class="fixed"></div>
+</div>
+<!-- Modal para Curso de Idiomas -->
+<div id="modalIdiomas" class="fixed inset-0 flex items-center justify-center z-50 hidden">
+    <div class="bg-white p-6 rounded-lg shadow-xl max-w-3xl relative">
+        <h3 class="text-xl font-semibold mb-4">Temas del Curso de Idiomas</h3>
+        <div class="grid grid-cols-3 gap-4 text-gray-700 mb-6">
+            <div>Gramática Básica</div>
+            <div>Vocabulario Esencial</div>
+            <div>Conversación Diaria</div>
+            <div>Pronunciación Correcta</div>
+            <div>Comprensión Auditiva</div>
+            <div>Lectura y Escritura</div>
+            <div>Expresiones Comunes</div>
+            <div>Entonación y Ritmo</div>
+            <div>Aspectos Culturales</div>
+        </div>
+        <div class="flex justify-end">
+            <button id="closeModalIdiomas" class="bg-blue-500 text-white font-semibold px-4 py-2 rounded">Cerrar</button>
+        </div>
+    </div>
+    <div id="modalOverlayIdiomas" class="fixed"></div>
+</div>
+
+<!-- JavaScript para manejar los modales -->
+<script>
+    // Funcionalidad para abrir y cerrar el modal del curso de Matemáticas
+    document.getElementById('openModalMatematicas').addEventListener('click', function(event) {
+        event.preventDefault();
+        document.getElementById('modalMatematicas').classList.remove('hidden');
+    });
+
+    document.getElementById('closeModalMatematicas').addEventListener('click', function() {
+        document.getElementById('modalMatematicas').classList.add('hidden');
+    });
+
+    document.getElementById('modalOverlayMatematicas').addEventListener('click', function() {
+        document.getElementById('modalMatematicas').classList.add('hidden');
+    });
+
+    // Funcionalidad para abrir y cerrar el modal del curso de Ciencias
+    document.getElementById('openModalCiencias').addEventListener('click', function(event) {
+        event.preventDefault();
+        document.getElementById('modalCiencias').classList.remove('hidden');
+    });
+
+    document.getElementById('closeModalCiencias').addEventListener('click', function() {
+        document.getElementById('modalCiencias').classList.add('hidden');
+    });
+
+    document.getElementById('modalOverlayCiencias').addEventListener('click', function() {
+        document.getElementById('modalCiencias').classList.add('hidden');
+    });
+
+    // Funcionalidad para abrir y cerrar el modal del curso de Historia
+    document.getElementById('openModalHistoria').addEventListener('click', function(event) {
+        event.preventDefault();
+        document.getElementById('modalHistoria').classList.remove('hidden');
+    });
+
+    document.getElementById('closeModalHistoria').addEventListener('click', function() {
+        document.getElementById('modalHistoria').classList.add('hidden');
+    });
+
+    document.getElementById('modalOverlayHistoria').addEventListener('click', function() {
+        document.getElementById('modalHistoria').classList.add('hidden');
+    });
+
+    // Funcionalidad para abrir y cerrar el modal del curso de Idiomas
+    document.getElementById('openModalIdiomas').addEventListener('click', function(event) {
+        event.preventDefault();
+        document.getElementById('modalIdiomas').classList.remove('hidden');
+    });
+
+    document.getElementById('closeModalIdiomas').addEventListener('click', function() {
+        document.getElementById('modalIdiomas').classList.add('hidden');
+    });
+
+    document.getElementById('modalOverlayIdiomas').addEventListener('click', function() {
+        document.getElementById('modalIdiomas').classList.add('hidden');
+    });
+</script>
 </main>
 
 @endsection
