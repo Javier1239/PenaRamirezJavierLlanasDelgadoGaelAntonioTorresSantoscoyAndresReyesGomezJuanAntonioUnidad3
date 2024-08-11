@@ -45,10 +45,10 @@
                                 <button class="text-gray-300 hover:bg-gray-600 hover:text-white px-4 py-3 rounded-md text-base font-medium" onclick="toggleDropdown(1)">Cursos <i class="bi bi-caret-down-fill"></i></button>
                                 <div class="absolute z-10 -ml-4 mt-3 transform w-48 py-2 bg-white rounded-md shadow-lg hidden" id="dropdownContent1">
                                     <!-- Dropdown Content -->
-                                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"><i class="fas fa-calculator"></i> - Matemáticas</a>
-                                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"><i class="fas fa-flask"></i> - Ciencias</a>
-                                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"><i class="fas fa-history"></i> - Historia</a>
-                                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"><i class="fas fa-language"></i> - Idiomas</a>
+                                    <a href="#" onclick="openModal('Matematicas')" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"><i class="fas fa-calculator"></i> - Matemáticas</a>
+                                    <a href="#" onclick="openModal('Ciencias')" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"><i class="fas fa-flask"></i> - Ciencias</a>
+                                    <a href="#" onclick="openModal('Historia')" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"><i class="fas fa-history"></i> - Historia</a>
+                                    <a href="#" onclick="openModal('Idiomas')" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"><i class="fas fa-language"></i> - Idiomas</a>
                                 </div>
                             </div>
                             <!-- Dropdown 3 -->
@@ -95,6 +95,98 @@
             </div>
         </nav>
         
+        <!-- Modal para Curso de Matemáticas -->
+        <div id="modalMatematicas" class="fixed inset-0 flex items-center justify-center z-50 hidden">
+            <div class="bg-white p-6 rounded-lg shadow-xl max-w-3xl relative">
+                <h3 class="text-xl font-semibold mb-4">Temas del Curso de Matemáticas</h3>
+                <div class="grid grid-cols-3 gap-4 text-gray-700 mb-6">
+                    <div>Valor posicional decimal</div>
+                    <div>Divide fracciones</div>
+                    <div>El pensamiento algebraico</div>
+                    <div>Suma decimales</div>
+                    <div>Multiplica decimales</div>
+                    <div>Convertir unidades de medida</div>
+                    <div>Resta decimales</div>
+                    <div>Divide decimales</div>
+                    <div>Las gráficas de línea</div>
+                    <div>Suma y resta fracciones</div>
+                    <div>Potencias de diez</div>
+                    <div>Propiedades de las figuras</div>
+                    <div>Multiplicación y división de varios dígitos</div>
+                    <div>El volumen</div>
+                    <div>Plano coordenado</div>
+                    <div>Multiplica fracciones</div>
+                </div>
+                <div class="flex justify-end">
+                    <button id="closeModalMatematicas" class="bg-blue-500 text-white font-semibold px-4 py-2 rounded">Cerrar</button>
+                </div>
+            </div>
+            <div id="modalOverlayMatematicas" class="fixed"></div>
+        </div>
+        <!-- Modal para Curso de Ciencias -->
+        <div id="modalCiencias" class="fixed inset-0 flex items-center justify-center z-50 hidden">
+            <div class="bg-white p-6 rounded-lg shadow-xl max-w-3xl relative">
+                <h3 class="text-xl font-semibold mb-4">Temas del Curso de Ciencias</h3>
+                <div class="grid grid-cols-3 gap-4 text-gray-700 mb-6">
+                    <div>Principios de la Física</div>
+                    <div>Química Básica</div>
+                    <div>Biología Celular</div>
+                    <div>La Energía</div>
+                    <div>Ecología y Medio Ambiente</div>
+                    <div>Astronomía</div>
+                    <div>El Método Científico</div>
+                    <div>Experimentos Prácticos</div>
+                    <div>Avances Científicos</div>
+                </div>
+                <div class="flex justify-end">
+                    <button id="closeModalCiencias" class="bg-blue-500 text-white font-semibold px-4 py-2 rounded">Cerrar</button>
+                </div>
+            </div>
+            <div id="modalOverlayCiencias" class="fixed"></div>
+        </div>
+        <!-- Modal para Curso de Historia -->
+        <div id="modalHistoria" class="fixed inset-0 flex items-center justify-center z-50 hidden">
+            <div class="bg-white p-6 rounded-lg shadow-xl max-w-3xl relative">
+                <h3 class="text-xl font-semibold mb-4">Temas del Curso de Historia</h3>
+                <div class="grid grid-cols-3 gap-4 text-gray-700 mb-6">
+                    <div>Historia Antigua</div>
+                    <div>Edad Media</div>
+                    <div>Revolución Industrial</div>
+                    <div>Guerras Mundiales</div>
+                    <div>Historia Moderna</div>
+                    <div>Civilizaciones Prehispánicas</div>
+                    <div>Historia de América</div>
+                    <div>Movimientos Sociales</div>
+                    <div>Personajes Históricos</div>
+                </div>
+                <div class="flex justify-end">
+                    <button id="closeModalHistoria" class="bg-blue-500 text-white font-semibold px-4 py-2 rounded">Cerrar</button>
+                </div>
+            </div>
+            <div id="modalOverlayHistoria" class="fixed"></div>
+        </div>
+        <!-- Modal para Curso de Idiomas -->
+        <div id="modalIdiomas" class="fixed inset-0 flex items-center justify-center z-50 hidden">
+            <div class="bg-white p-6 rounded-lg shadow-xl max-w-3xl relative">
+                <h3 class="text-xl font-semibold mb-4">Temas del Curso de Idiomas</h3>
+                <div class="grid grid-cols-3 gap-4 text-gray-700 mb-6">
+                    <div>Gramática Básica</div>
+                    <div>Vocabulario Esencial</div>
+                    <div>Conversación Diaria</div>
+                    <div>Pronunciación Correcta</div>
+                    <div>Comprensión Auditiva</div>
+                    <div>Lectura y Escritura</div>
+                    <div>Expresiones Comunes</div>
+                    <div>Entonación y Ritmo</div>
+                    <div>Aspectos Culturales</div>
+                </div>
+                <div class="flex justify-end">
+                    <button id="closeModalIdiomas" class="bg-blue-500 text-white font-semibold px-4 py-2 rounded">Cerrar</button>
+                </div>
+            </div>
+            <div id="modalOverlayIdiomas" class="fixed"></div>
+        </div>
+
         <script>
             // Función para cerrar todos los dropdowns abiertos
             function closeDropdowns() {
@@ -117,6 +209,42 @@
                     }
                 });
             }
+
+            // Función para abrir el modal correspondiente
+                function openModal(modalName) {
+                    // Ocultar todos los modales
+                    const modals = document.querySelectorAll('[id^=modal]');
+                    modals.forEach(modal => modal.classList.add('hidden'));
+
+                    // Mostrar el modal correspondiente
+                    const modal = document.getElementById(`modal${modalName}`);
+                    const overlay = document.getElementById(`modalOverlay${modalName}`);
+                    if (modal) modal.classList.remove('hidden');
+                    if (overlay) overlay.classList.remove('hidden');
+                }
+
+                // Función para cerrar los modales
+                function closeModal(modalName) {
+                    const modal = document.getElementById(`modal${modalName}`);
+                    const overlay = document.getElementById(`modalOverlay${modalName}`);
+                    if (modal) modal.classList.add('hidden');
+                    if (overlay) overlay.classList.add('hidden');
+                }
+
+                // Agregar event listeners a los botones de cierre y overlays
+                document.querySelectorAll('[id^=closeModal]').forEach(button => {
+                    button.addEventListener('click', () => {
+                        const modalName = button.id.replace('closeModal', '');
+                        closeModal(modalName);
+                    });
+                });
+
+                document.querySelectorAll('[id^=modalOverlay]').forEach(overlay => {
+                    overlay.addEventListener('click', () => {
+                        const modalName = overlay.id.replace('modalOverlay', '');
+                        closeModal(modalName);
+                    });
+                });
         </script>
                 
         <main>
