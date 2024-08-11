@@ -11,21 +11,22 @@
 <body class="bg-gray-200">
 
     <!-- Navbar -->
-    <nav class="bg-gradient-to-r from-gray-900 via-gray-800 to-black py-8">
+    <nav class="bg-white shadow-lg py-6">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between">
                 <!-- Logo and Main Navigation -->
                 <div class="flex items-center">
-                    <div class="flex-shrink-0 text-white mr-6">
-                        <a href="/" class="text-white text-3xl font-bold flex items-center">
-                            <img src="logo.png" alt="E-learning Logo" class="mr-2 h-20">
+                    <div class="flex-shrink-0 mr-6">
+                        <a href="/" class="text-gray-800 text-3xl font-bold flex items-center">
+                            <img src="logo.png" alt="E-learning Logo" class="mr-2 h-16">
                             E-learning
                         </a>
                     </div>
+                   
                 </div>
                 <!-- Back Button -->
                 <div>
-                    <button onclick="history.back()" class="font-semibold text-white px-4 py-3 rounded-md text-base font-medium bg-blue-600 hover:bg-blue-700 active:bg-blue-800">
+                    <button onclick="history.back()" class="font-semibold text-gray-800 px-4 py-2 rounded-md text-base font-medium bg-blue-500 hover:bg-blue-600 active:bg-blue-700">
                         <i class="fas fa-arrow-left"></i> Atrás
                     </button>
                 </div>

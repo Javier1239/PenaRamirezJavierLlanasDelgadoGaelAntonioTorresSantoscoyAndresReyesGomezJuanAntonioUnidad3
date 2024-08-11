@@ -5,39 +5,40 @@
 @section('contents')
 <main class="bg-gray-200">
     <!-- Contenido principal -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 bg-gray-100 rounded-lg shadow-md">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <!-- Columna 1: Texto con precio y botón de compra -->
-            <div class="flex flex-col justify-center">
-                <h2 class="text-3xl font-bold mb-4">Descubre nuestros cursos premium</h2>
-                <p class="text-xl mb-4">Aprovecha esta oportunidad única para mejorar tus habilidades y avanzar en tu carrera profesional.</p>
-                <p class="text-2xl font-semibold mb-4">$99 <span class="text-sm font-normal">/mes</span></p>
-                <button class="bg-blue-500 text-white px-6 py-3 rounded-md text-lg font-semibold hover:bg-blue-600">Empezar a comprar</button>
+            <div class="flex flex-col justify-center text-center lg:text-left">
+                <h2 class="text-4xl font-bold mb-6 text-gray-800">Explora nuestros cursos premium</h2>
+                <p class="text-xl mb-6 text-gray-700">Esta es tu oportunidad de elevar tus habilidades y dar un paso adelante en tu carrera.</p>
+                <p class="text-3xl font-bold mb-6 text-blue-600">$99 <span class="text-lg font-normal text-gray-600">/mes</span></p>
+                <button class="bg-gradient-to-r from-green-400 to-blue-500 text-white px-8 py-4 rounded-full text-lg font-bold hover:from-green-500 hover:to-blue-600 transition-transform transform hover:scale-105 shadow-lg">Compra Ahora</button>
             </div>
-
+    
             <!-- Columna 2: Sección de imágenes -->
-            <div class="grid grid-cols-3 gap-4">
-                <div class="relative">
-                    <img src="https://st2.depositphotos.com/3580719/10635/v/950/depositphotos_106356176-stock-illustration-seamless-background-with-formulas-and.jpg" alt="Curso 1" class="rounded-lg w-full h-64 object-cover">
-                    <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 rounded-lg opacity-0 hover:opacity-100 transition duration-300">
-                        <a href="#" class="text-white font-semibold">Ver detalles</a>
+            <div class="grid grid-cols-3 gap-6">
+                <div class="relative group">
+                    <div class="absolute inset-0 bg-black bg-opacity-50 rounded-lg opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300">
+                        <a href="#" class="text-white font-bold">Ver detalles</a>
                     </div>
+                    <img src="https://st2.depositphotos.com/3580719/10635/v/950/depositphotos_106356176-stock-illustration-seamless-background-with-formulas-and.jpg" alt="Curso 1" class="w-full h-full object-cover object-center rounded-lg">
                 </div>
-                <div class="relative">
-                    <img src="https://static.vecteezy.com/system/resources/previews/000/468/875/original/science-concept-flat-vector.jpg" alt="Curso 2" class="rounded-lg w-full h-64 object-cover">
-                    <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 rounded-lg opacity-0 hover:opacity-100 transition duration-300">
-                        <a href="#" class="text-white font-semibold">Ver detalles</a>
+                <div class="relative group">
+                    <div class="absolute inset-0 bg-black bg-opacity-50 rounded-lg opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300">
+                        <a href="#" class="text-white font-bold">Ver detalles</a>
                     </div>
+                    <img src="https://static.vecteezy.com/system/resources/previews/000/468/875/original/science-concept-flat-vector.jpg" alt="Curso 2" class="w-full h-full object-cover object-center rounded-lg">
                 </div>
-                <div class="relative">
-                    <img src="https://portalacademico.cch.unam.mx/sites/default/files/portadas/2019-07/HistoriaUniversal1-Portada.jpg" alt="Curso 3" class="rounded-lg w-full h-64 object-cover">
-                    <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 rounded-lg opacity-0 hover:opacity-100 transition duration-300">
-                        <a href="#" class="text-white font-semibold">Ver detalles</a>
+                <div class="relative group">
+                    <div class="absolute inset-0 bg-black bg-opacity-50 rounded-lg opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300">
+                        <a href="#" class="text-white font-bold">Ver detalles</a>
                     </div>
+                    <img src="https://portalacademico.cch.unam.mx/sites/default/files/portadas/2019-07/HistoriaUniversal1-Portada.jpg" alt="Curso 3" class="w-full h-full object-cover object-center rounded-lg">
                 </div>
             </div>
         </div>
     </div>
+    
     <section class="bg-gray-200 py-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 class="text-3xl font-bold mb-8">Cursos Destacados</h2>

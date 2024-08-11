@@ -18,82 +18,91 @@
 </head>
 <body>
     <div>
-        <nav class="bg-gradient-to-r from-gray-900 via-gray-800 to-black py-8">
+        <nav class="bg-white shadow-lg py-6">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex items-center justify-between">
                     <!-- Logo and Main Navigation -->
                     <div class="flex items-center">
-                        <div class="flex-shrink-0 text-white mr-6">
-                            <a href="/" class="text-white text-3xl font-bold flex items-center">
-                                <img src="logo.png" alt="E-learning Logo" class="mr-2 h-20">
+                        <div class="flex-shrink-0 mr-6">
+                            <a href="/" class="text-gray-800 text-3xl font-bold flex items-center">
+                                <img src="logo.png" alt="E-learning Logo" class="mr-2 h-16">
                                 E-learning
                             </a>
                         </div>
                         <!-- Dropdown Menus -->
-                        <div class="flex space-x-4 relative">
+                        <div class="flex space-x-6">
                             <!-- Dropdown 1 -->
                             <div class="relative">
-                                <button class="text-gray-300 hover:bg-gray-600 hover:text-white px-4 py-3 rounded-md text-base font-medium" onclick="toggleDropdown(0)">Inicio <i class="bi bi-caret-down-fill"></i></button>
-                                <div class="absolute z-10 -ml-4 mt-3 transform w-48 py-2 bg-white rounded-md shadow-lg hidden" id="dropdownContent0">
+                                <button class="text-gray-600 hover:text-blue-600 px-4 py-2 text-base font-medium border border-gray-300 rounded-md" onclick="toggleDropdown(0)">
+                                    Inicio <i class="bi bi-caret-down-fill"></i>
+                                </button>
+                                <div class="absolute z-10 mt-2 w-48 py-2 bg-white rounded-md shadow-lg hidden" id="dropdownContent0">
                                     <!-- Dropdown Content -->
-                                    <a href="{{ url('/') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"><i class="fas fa-home"></i> - Home</a>
-                                    <a href="{{ url('/cursos') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"><i class="fas fa-book"></i> - Cursos</a>
+                                    <a href="{{ url('/') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Home</a>
+                                    <a href="{{ url('/cursos') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Cursos</a>
                                 </div>
                             </div>
                             <!-- Dropdown 2 -->
                             <div class="relative">
-                                <button class="text-gray-300 hover:bg-gray-600 hover:text-white px-4 py-3 rounded-md text-base font-medium" onclick="toggleDropdown(1)">Cursos <i class="bi bi-caret-down-fill"></i></button>
-                                <div class="absolute z-10 -ml-4 mt-3 transform w-48 py-2 bg-white rounded-md shadow-lg hidden" id="dropdownContent1">
+                                <button class="text-gray-600 hover:text-blue-600 px-4 py-2 text-base font-medium border border-gray-300 rounded-md" onclick="toggleDropdown(1)">
+                                    Cursos <i class="bi bi-caret-down-fill"></i>
+                                </button>
+                                <div class="absolute z-10 mt-2 w-48 py-2 bg-white rounded-md shadow-lg hidden" id="dropdownContent1">
                                     <!-- Dropdown Content -->
-                                    <a href="#" onclick="openModal('Matematicas')" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"><i class="fas fa-calculator"></i> - Matemáticas</a>
-                                    <a href="#" onclick="openModal('Ciencias')" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"><i class="fas fa-flask"></i> - Ciencias</a>
-                                    <a href="#" onclick="openModal('Historia')" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"><i class="fas fa-history"></i> - Historia</a>
-                                    <a href="#" onclick="openModal('Idiomas')" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"><i class="fas fa-language"></i> - Idiomas</a>
+                                    <a href="#" onclick="openModal('Matematicas')" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Matemáticas</a>
+                                    <a href="#" onclick="openModal('Ciencias')" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Ciencias</a>
+                                    <a href="#" onclick="openModal('Historia')" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Historia</a>
+                                    <a href="#" onclick="openModal('Idiomas')" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Idiomas</a>
                                 </div>
                             </div>
                             <!-- Dropdown 3 -->
                             <div class="relative">
-                                <button class="text-gray-300 hover:bg-gray-600 hover:text-white px-4 py-3 rounded-md text-base font-medium" onclick="toggleDropdown(2)">Ayuda <i class="bi bi-caret-down-fill"></i></button>
-                                <div class="absolute z-10 -ml-4 mt-3 transform w-48 py-2 bg-white rounded-md shadow-lg hidden" id="dropdownContent2">
+                                <button class="text-gray-600 hover:text-blue-600 px-4 py-2 text-base font-medium border border-gray-300 rounded-md" onclick="toggleDropdown(2)">
+                                    Ayuda <i class="bi bi-caret-down-fill"></i>
+                                </button>
+                                <div class="absolute z-10 mt-2 w-48 py-2 bg-white rounded-md shadow-lg hidden" id="dropdownContent2">
                                     <!-- Dropdown Content -->
-                                    <a href="{{ url('/index') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"><i class="fas fa-hands-helping"></i> - Soporte</a>
-                                    <a href="{{ url('/faq') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"><i class="fas fa-question-circle"></i> - FAQs</a>
-                                    <a href="{{ url('/contacto') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"><i class="fas fa-envelope"></i> - Contacto</a>
+                                    <a href="{{ url('/index') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Soporte</a>
+                                    <a href="{{ url('/faq') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">FAQs</a>
+                                    <a href="{{ url('/contacto') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Contacto</a>
                                 </div>
                             </div>
-                            <!-- Campo de búsqueda -->
-                            <div class="relative">
-                                <input type="text" class="text-gray-800 placeholder-gray-400 px-4 py-3 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 w-64" placeholder="Buscar...">
-                                <button class="absolute right-0 top-0 bottom-0 px-4 py-3 bg-gray-700 text-white rounded-r-md"><i class="fas fa-search"></i></button>
-                            </div>
-                            
                         </div>
                     </div>
                     <!-- Secondary Navigation and Additional Elements -->
-                    <div class="hidden md:flex items-center space-x-4">
+                    <div class="hidden md:flex items-center space-x-6">
+                        <!-- Campo de búsqueda -->
+                        <div class="relative">
+                            <input type="text" class="text-gray-800 placeholder-gray-400 px-4 py-2 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500 w-64" placeholder="Buscar...">
+                            <button class="absolute right-0 top-0 bottom-0 px-4 py-2 bg-blue-600 text-white rounded-r-full">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
                         <!-- Authentication Links -->
                         @auth
                         <div class="relative">
-                            <button class="text-gray-300 hover:bg-gray-600 hover:text-white px-4 py-3 rounded-md text-base font-medium" onclick="toggleDropdown(3)">{{ Auth::user()->name }} <i class="bi bi-caret-down-fill"></i></button>
-                            <div class="absolute z-10 -ml-4 mt-3 transform w-48 py-2 bg-white rounded-md shadow-lg hidden" id="dropdownContent3">
+                            <button class="text-gray-600 hover:text-blue-600 px-4 py-2 text-base font-medium" onclick="toggleDropdown(3)">{{ Auth::user()->name }} <i class="bi bi-caret-down-fill"></i></button>
+                            <div class="absolute z-10 mt-2 w-48 py-2 bg-white rounded-md shadow-lg hidden" id="dropdownContent3">
                                 <!-- Dropdown Content -->
-                                <a href="{{ route('profile.edit') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"><i class="fas fa-user"></i> - Perfil</a>
+                                <a href="{{ route('profile.edit') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Perfil</a>
                                 <form method="POST" action="{{ route('logout') }}">
                                     @csrf
-                                    <button type="submit" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"><i class="fas fa-sign-out-alt"></i> - Cerrar Sesión</button>
+                                    <button type="submit" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Cerrar Sesión</button>
                                 </form>
                             </div>
                         </div>
                         @else
                         <div class="ml-4 flex items-center">
-                            <a href="/login" class="font-semibold text-white px-4 py-3 rounded-md text-base font-medium bg-blue-600 hover:bg-blue-700 active:bg-blue-800"><i class="fas fa-sign-in-alt"></i> Log in</a>
-                            <a href="/register" class="ml-4 font-semibold text-white px-4 py-3 rounded-md text-base font-medium bg-green-600 hover:bg-green-700 active:bg-green-800"><i class="fas fa-user-plus"></i> Register</a>
+                            <a href="/login" class="font-semibold text-gray-800 px-4 py-2 rounded-full text-base font-medium bg-blue-500 hover:bg-blue-600">Log in</a>
+                            <a href="/register" class="ml-4 font-semibold text-gray-800 px-4 py-2 rounded-full text-base font-medium bg-green-500 hover:bg-green-600">Register</a>
                         </div>
                         @endauth
                     </div>
                 </div>
             </div>
         </nav>
+        
+        
         
         <!-- Modal para Curso de Matemáticas -->
         <div id="modalMatematicas" class="fixed inset-0 flex items-center justify-center z-50 hidden">
