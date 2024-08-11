@@ -9,29 +9,32 @@
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <!-- Columna 1: Texto con precio y botón de compra -->
             <div class="flex flex-col justify-center text-center lg:text-left">
-                <h2 class="text-4xl font-bold mb-6 text-gray-800">Explora nuestros cursos premium</h2>
-                <p class="text-xl mb-6 text-gray-700">Esta es tu oportunidad de elevar tus habilidades y dar un paso adelante en tu carrera.</p>
-                <p class="text-3xl font-bold mb-6 text-blue-600">$99 <span class="text-lg font-normal text-gray-600">/mes</span></p>
-                <button class="bg-gradient-to-r from-green-400 to-blue-500 text-white px-8 py-4 rounded-full text-lg font-bold hover:from-green-500 hover:to-blue-600 transition-transform transform hover:scale-105 shadow-lg">Compra Ahora</button>
-            </div>
+    <h2 class="text-4xl font-bold mb-6 text-gray-800">Explora nuestros cursos premium</h2>
+    <p class="text-xl mb-6 text-gray-700">Esta es tu oportunidad de elevar tus habilidades y dar un paso adelante en tu carrera.</p>
+    <p class="text-3xl font-bold mb-6 text-blue-600">$99 <span class="text-lg font-normal text-gray-600">/mes</span></p>
+    <button onclick="mostrarAlerta()" class="bg-gradient-to-r from-green-400 to-blue-500 text-white px-8 py-4 rounded-full text-lg font-bold hover:from-green-500 hover:to-blue-600 transition-transform transform hover:scale-105 shadow-lg">
+        Compra Ahora
+    </button>
+</div>
+
     
             <!-- Columna 2: Sección de imágenes -->
             <div class="grid grid-cols-3 gap-6">
                 <div class="relative group">
                     <div class="absolute inset-0 bg-black bg-opacity-50 rounded-lg opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300">
-                        <a href="#" class="text-white font-bold">Ver detalles</a>
+                        <a href="#" id="openModal1Matematicas" class="text-white font-bold">Ver detalles</a>
                     </div>
                     <img src="https://st2.depositphotos.com/3580719/10635/v/950/depositphotos_106356176-stock-illustration-seamless-background-with-formulas-and.jpg" alt="Curso 1" class="w-full h-full object-cover object-center rounded-lg">
                 </div>
                 <div class="relative group">
                     <div class="absolute inset-0 bg-black bg-opacity-50 rounded-lg opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300">
-                        <a href="#" class="text-white font-bold">Ver detalles</a>
+                        <a href="#" id="openModal1Ciencias" class="text-white font-bold">Ver detalles</a>
                     </div>
                     <img src="https://static.vecteezy.com/system/resources/previews/000/468/875/original/science-concept-flat-vector.jpg" alt="Curso 2" class="w-full h-full object-cover object-center rounded-lg">
                 </div>
                 <div class="relative group">
                     <div class="absolute inset-0 bg-black bg-opacity-50 rounded-lg opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300">
-                        <a href="#" class="text-white font-bold">Ver detalles</a>
+                        <a href="#" id="openModal1Historia" class="text-white font-bold">Ver detalles</a>
                     </div>
                     <img src="https://portalacademico.cch.unam.mx/sites/default/files/portadas/2019-07/HistoriaUniversal1-Portada.jpg" alt="Curso 3" class="w-full h-full object-cover object-center rounded-lg">
                 </div>
@@ -169,6 +172,22 @@
     </div>
     <div id="modalOverlayMatematicas" class="fixed"></div>
 </div>
+<!-- Modal para Curso de Matemáticas nuevo-->
+<div id="modal1Matematicas" class="fixed inset-0 flex items-center justify-center z-50 hidden">
+    <div class="bg-white p-6 rounded-lg shadow-xl max-w-3xl relative">
+        <h3 class="text-xl font-semibold mb-4">Curso de Matemáticas</h3>
+        <div class="grid grid-cols-3 gap-4 text-gray-700 mb-6">
+            <div>Inscribete ahora por $99 al mes.</div>
+            <div>Aprende los conceptos fundamentales de matemáticas.</div> 
+            <div>Mejora tu habilidad para resolver problemas.</div>
+          
+        </div>
+        <div class="flex justify-end">
+            <button id="closeModal1Matematicas" class="bg-blue-500 text-white font-semibold px-4 py-2 rounded">Cerrar</button>
+        </div>
+    </div>
+    <div id="modalOverlayMatematica" class="fixed"></div>
+</div>
 <!-- Modal para Curso de Ciencias -->
 <div id="modalCiencias" class="fixed inset-0 flex items-center justify-center z-50 hidden">
     <div class="bg-white p-6 rounded-lg shadow-xl max-w-3xl relative">
@@ -190,6 +209,22 @@
     </div>
     <div id="modalOverlayCiencias" class="fixed"></div>
 </div>
+<!-- Modal para Curso de Ciencias 1-->
+<div id="modal1Ciencias" class="fixed inset-0 flex items-center justify-center z-50 hidden">
+    <div class="bg-white p-6 rounded-lg shadow-xl max-w-3xl relative">
+        <h3 class="text-xl font-semibold mb-4">Curso de Ciencias</h3>
+        <div class="grid grid-cols-3 gap-4 text-gray-700 mb-6">
+            <div>Inscribete ahora por $99 al mes.</div>
+            <div>Explora los principios básicos de la ciencia.</div>
+            <div>Realiza experimentos prácticos para entender el mundo que te rodea.</div>
+    
+        </div>
+        <div class="flex justify-end">
+            <button id="closeModal1Ciencias" class="bg-blue-500 text-white font-semibold px-4 py-2 rounded">Cerrar</button>
+        </div>
+    </div>
+    <div id="modalOverlayCiencia" class="fixed"></div>
+</div>
 <!-- Modal para Curso de Historia -->
 <div id="modalHistoria" class="fixed inset-0 flex items-center justify-center z-50 hidden">
     <div class="bg-white p-6 rounded-lg shadow-xl max-w-3xl relative">
@@ -210,6 +245,22 @@
         </div>
     </div>
     <div id="modalOverlayHistoria" class="fixed"></div>
+</div>
+<!-- Modal para Curso de Historia 1-->
+<div id="modal1Historia" class="fixed inset-0 flex items-center justify-center z-50 hidden">
+    <div class="bg-white p-6 rounded-lg shadow-xl max-w-3xl relative">
+        <h3 class="text-xl font-semibold mb-4">Curso de Historia</h3>
+        <div class="grid grid-cols-3 gap-4 text-gray-700 mb-6">
+            <div>Inscribete ahora por $99 al mes.</div>
+            <div>Descubre los eventos más importantes de la historia mundial.</div>
+            <div>Comprende cómo han moldeado el presente.</div>
+          
+        </div>
+        <div class="flex justify-end">
+            <button id="closeModal1Historia" class="bg-blue-500 text-white font-semibold px-4 py-2 rounded">Cerrar</button>
+        </div>
+    </div>
+    <div id="modalOverlayHistori" class="fixed"></div>
 </div>
 <!-- Modal para Curso de Idiomas -->
 <div id="modalIdiomas" class="fixed inset-0 flex items-center justify-center z-50 hidden">
@@ -233,6 +284,45 @@
     <div id="modalOverlayIdiomas" class="fixed"></div>
 </div>
 
+<!-- JavaScript para manejar alertas -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+    function mostrarAlerta() {
+        Swal.fire({
+            title: 'Para comprar ahora necesitas iniciar sesión',
+            imageUrl: 'https://media.tenor.com/ri-Ue99WZ4UAAAAM/angry-cat.gif', // Reemplaza con la URL del GIF que desees usar
+            imageWidth: 200,
+            imageHeight: 200,
+            imageAlt: 'Iniciar Sesión',
+            confirmButtonText: 'Cerrar',
+            customClass: {
+                popup: 'bg-white text-black', // Estilos generales de la alerta
+                title: 'font-bold text-lg',
+                confirmButton: 'btn-custom', // Clases personalizadas para el botón
+            }
+        });
+    }
+</script>
+<style>
+    .btn-custom {
+        background-color: #4285f4; /* Color de fondo */
+        color: white; /* Color del texto */
+        padding: 10px 20px; /* Padding del botón */
+        font-size: 16px; /* Tamaño de la fuente */
+        border: none; /* Sin borde */
+        border-radius: 4px; /* Esquinas redondeadas */
+        cursor: pointer; /* Cursor en forma de mano */
+    }
+
+    .btn-custom:hover {
+        background-color: #357ae8; /* Color de fondo al pasar el mouse */
+    }
+</style>
+
+
+
+
 <!-- JavaScript para manejar los modales -->
 <script>
     // Funcionalidad para abrir y cerrar el modal del curso de Matemáticas
@@ -249,6 +339,20 @@
         document.getElementById('modalMatematicas').classList.add('hidden');
     });
 
+       // Funcionalidad para abrir y cerrar el modal del curso nuevo
+       document.getElementById('openModal1Matematicas').addEventListener('click', function(event) {
+        event.preventDefault();
+        document.getElementById('modal1Matematicas').classList.remove('hidden');
+    });
+
+    document.getElementById('closeModal1Matematicas').addEventListener('click', function() {
+        document.getElementById('modal1Matematicas').classList.add('hidden');
+    });
+
+    document.getElementById('modalOverlayMatematica').addEventListener('click', function() {
+        document.getElementById('modal1Matematicas').classList.add('hidden');
+    });
+
     // Funcionalidad para abrir y cerrar el modal del curso de Ciencias
     document.getElementById('openModalCiencias').addEventListener('click', function(event) {
         event.preventDefault();
@@ -261,6 +365,35 @@
 
     document.getElementById('modalOverlayCiencias').addEventListener('click', function() {
         document.getElementById('modalCiencias').classList.add('hidden');
+    });
+    
+    //
+    // Funcionalidad para abrir y cerrar el modal del curso de Ciencias
+    document.getElementById('openModal1Ciencias').addEventListener('click', function(event) {
+        event.preventDefault();
+        document.getElementById('modal1Ciencias').classList.remove('hidden');
+    });
+
+    document.getElementById('closeModal1Ciencias').addEventListener('click', function() {
+        document.getElementById('modal1Ciencias').classList.add('hidden');
+    });
+
+    document.getElementById('modalOverlayCiencia').addEventListener('click', function() {
+        document.getElementById('modal1Ciencias').classList.add('hidden');
+    });
+    //
+       // Funcionalidad para abrir y cerrar el modal del curso de Historia
+       document.getElementById('openModal1Historia').addEventListener('click', function(event) {
+        event.preventDefault();
+        document.getElementById('modal1Historia').classList.remove('hidden');
+    });
+
+    document.getElementById('closeModal1Historia').addEventListener('click', function() {
+        document.getElementById('modal1Historia').classList.add('hidden');
+    });
+
+    document.getElementById('modalOverlayHistori').addEventListener('click', function() {
+        document.getElementById('modal1Historia').classList.add('hidden');
     });
 
     // Funcionalidad para abrir y cerrar el modal del curso de Historia
